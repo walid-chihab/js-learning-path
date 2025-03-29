@@ -1,3 +1,3 @@
 # js-learning-path
-<br>
-<h1>Un dépôt dédié à l'apprentissage structuré de JavaScript, avec des exercices pratiques et des ressources pour développer des compétences solides en programmation et relever des défis techniques pour les développeurs de tous niveaux.</h1>
+<hr>
+<h3>Un dépôt dédié à l'apprentissage structuré de JavaScript, avec des exercices pratiques et des ressources pour développer des compétences solides en programmation et relever des défis techniques pour les développeurs de tous niveaux.</h3>
