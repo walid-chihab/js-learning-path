@@ -32,8 +32,9 @@ function	ft_max_3 ( x1, x2, x3)
 }
 
 
-let tab = [2,6,9];
-
+//let tab = [2,6,9];//les 3_trois_points pour acceder a tout les element du tableau
 //max_3(...tab);// Déstructuration d'un tableau "destructuring""tafkik||tadmir"
 
+
+//fct pre-definie
 //ft_max_3(3,8,0);
