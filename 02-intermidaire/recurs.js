@@ -1,6 +1,6 @@
 nombre = prompt("enterer un nombre positif : ");// La méthode `prompt()` accepte toujours une chaîne de caractères (string) en entrée,
 if (isNaN(nombre) || nombre.trim() === "" || nombre <= 0){// La méthode `trim()` élimine les espaces au début et à la fin de la chaîne de caractères
-    console.log("entrer nompre positif");
+    console.log("entrer  un nombre positif");
 }
  else {
     test(Number(nombre));  // Conversion du nombre en entier pour l'utiliser dans la fonction
