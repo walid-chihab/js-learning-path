@@ -8,17 +8,24 @@
 
 function	max_3 ( x1, x2, x3)
 {
-	if ( x1 > x2)
+	if(isNaN(x1) ||isNaN(x2) ||isNaN(x3))
 	{
-		if( x1 > x3 )
-			console.log( x1 + " est le plus grand element de la liste");
+		console.log("enterer des val valable");
 	}
 	else
 	{
-		if ( x2 > x3 )
-			console.log( x2 + " est le plus grand element de la liste");
-		else 
-			console.log( x3 + " est le plus grand element de la liste");
+		if ( x1 > x2)
+		{
+			if( x1 > x3 )
+				console.log( x1 + " est le plus grand element de la liste");
+		}
+		else
+		{
+			if ( x2 > x3 )
+				console.log( x2 + " est le plus grand element de la liste");
+			else 
+				console.log( x3 + " est le plus grand element de la liste");
+		}
 	}
 }
 
@@ -32,9 +39,18 @@ function	ft_max_3 ( x1, x2, x3)
 }
 
 
-//let tab = [2,6,9];//les 3_trois_points pour acceder a tout les element du tableau
+//let tab = [2,6,9];//les 3_trois_points pour acceder a tout les element du tablea
 //max_3(...tab);// Déstructuration d'un tableau "destructuring""tafkik||tadmir"
 
 
 //fct pre-definie
 //ft_max_3(3,8,0);
+
+
+
+//si on veux donne directe les vals a nos vars 
+////on convert par 3 method de chain de caracter a une valeur on peut l'utiliser
+/*  val_1 = +prompt ("entrer la val de 1 ere element : ");
+    val_2 = Number(prompt ("entrer la val de 2 eme element : ")) ;
+    val_3 = parseInt(prompt ("entrer la val de 3 eme element : "));
+*/
