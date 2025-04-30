@@ -16,3 +16,4 @@ js-learning-path/
 ├── 03-avance/           # Exercices avancés
 └── README.md
 
+<h3> je peut ajouter des mini projets apres incha lah </h3>
