@@ -46,17 +46,35 @@ function calculerMoyenne(nom){
 	//si ya des des notes on fait la somme de ces notes 
 	etudiant.notes.forEach(note => {
 		sum += note;
-		return ;
 	});
 
 
-	//on l'affich le moyenne de ces notes 
-	sum  = sum /etudiant.notes.length ;
-	console.log (`le moyenne de ${nom} est ${sum}`);
+	//on l'affich le moyenne des notes  de ce etudiant
+	let moyenn  = sum /etudiant.notes.length ;
+	console.log (`le moyenne de ${nom} est ${moyenn}`);
+	return moyenn;
+}
 
+// afficherMeilleurEtudiant : affiche l'étudiant avec la meilleure moyenne
+function afficherMeilleurEtudiant() {
+  if (etudiants.length === 0) return;
+
+  let meilleur = etudiants[0];
+  let meilleureMoyenne = calculerMoyenne(meilleur.nom);
+
+  for (let i = 1; i < etudiants.length; i++) {
+    let moyenn = calculerMoyenne(etudiants[i].nom);
+    if (moyenn > meilleureMoyenne) {
+      meilleur = etudiants[i];
+      meilleureMoyenne = moyenn;
+    }
+  }
+
+  console.log(`Meilleur étudiant : ${meilleur.nom}, Moyenne : ${meilleureMoyenne.toFixed(2)}`);
 }
 
 ajouterEtudiant('anwar', 21, [14.3, 12.11, 11.89]);
 ajouterEtudiant('haytem', 25, [11.31]);
 ajouterEtudiant('anwar', 23, [14.54]);
 ajouterEtudiant('anwar', 20, [14.00]);
+afficherMeilleurEtudiant();
