@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculatrice simple</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { margin: 5px; }
+    #resultat { margin-top: 15px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h1>Opérations sur deux nombres</h1>
+
+  <input type="text" id="nombre1" placeholder="Entrez un nombre">
+  <input type="text" id="nombre2" placeholder="Entrez un autre nombre"><br>
+
+  <button onclick="effectuerOperation('addition')">Additionner</button>
+  <button onclick="effectuerOperation('multiplication')">Multiplier</button>
+
+  <div id="resultat"></div>
+
+  <script>
+    function additionner(a, b) {
+      return a + b;
+    }
+
+    function multiplier(a, b) {
+      return a * b;
+    }
+
+    function afficherResultat(texte) {
+      document.getElementById('resultat').textContent = texte;
+    }
+
+    function effectuerOperation(type) {
+      const val1 = document.getElementById('nombre1').value;
+      const val2 = document.getElementById('nombre2').value;
+
+      const a = parseFloat(val1);
+      const b = parseFloat(val2);
+
+      if (isNaN(a) || isNaN(b)) {
+        afficherResultat(" Veuillez entrer deux nombres valides.");
+        return;
+      }
+
+      let resultat = (type === 'addition') ? additionner(a, b) : multiplier(a, b);
+      afficherResultat(` Résultat : ${resultat}`);
+    }
+  </script>
+
+</body>
+</html>
+
