@@ -1,56 +1,32 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Calculatrice simple</title>
-  <style>
-    body { font-family: Arial; padding: 20px; }
-    input, button { margin: 5px; }
-    #resultat { margin-top: 15px; font-weight: bold; }
-  </style>
-</head>
-<body>
+<!DOCTYPE HTML>
+<HTML lang="fr">
+	<head>
+		<meta charset =	"UTF-8">
+		<title> calculatrice Simple </title>
+		<style> </style>
+	</head>
+	<body>
+		<input id = "n1" type = "text" placeholder = "entrer un nombre">
+		<input id = "n2" type = "text" placeholder = "entrer un nombre">
 
-  <h1>Opérations sur deux nombres</h1>
+		<button onclick = "operation('add')" > addition </button>
+		<button onclick = "operation ('mul')" > multiplication </button>
 
-  <input type="text" id="nombre1" placeholder="Entrez un nombre">
-  <input type="text" id="nombre2" placeholder="Entrez un autre nombre"><br>
+		<div id = "res"></div>
+		<script>
+			function	operation (op){
+				const a = parseFloat(document.getElementById('n1').value);
+				const b = parseFloat (document.getElementById('n2').value);
 
-  <button onclick="effectuerOperation('addition')">Additionner</button>
-  <button onclick="effectuerOperation('multiplication')">Multiplier</button>
+				if ( isNaN(a) || isNaN(b) ) {
+					document.getElementById('res').textContent="entrer un valeur valable";
+					return;
+				}
 
-  <div id="resultat"></div>
-
-  <script>
-    function additionner(a, b) {
-      return a + b;
-    }
-
-    function multiplier(a, b) {
-      return a * b;
-    }
-
-    function afficherResultat(texte) {
-      document.getElementById('resultat').textContent = texte;
-    }
-
-    function effectuerOperation(type) {
-      const val1 = document.getElementById('nombre1').value;
-      const val2 = document.getElementById('nombre2').value;
-
-      const a = parseFloat(val1);
-      const b = parseFloat(val2);
-
-      if (isNaN(a) || isNaN(b)) {
-        afficherResultat(" Veuillez entrer deux nombres valides.");
-        return;
-      }
-
-      let resultat = (type === 'addition') ? additionner(a, b) : multiplier(a, b);
-      afficherResultat(` Résultat : ${resultat}`);
-    }
-  </script>
-
-</body>
-</html>
+				let r = (op === 'add')? a+b : a*b ;
+				document.getElementById('res').testContent = "votre reste d'operation est : " + r ;
+			}
+		</script>
+	</body>
+</HTML>
 
