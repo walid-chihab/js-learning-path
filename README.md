@@ -14,6 +14,7 @@ js-learning-path/
 ├── 01-fondamentaux/     # Exercices sur les bases
 ├── 02-intermédiaire/    # Exercices sur des notions intermédiaires
 ├── 03-avance/           # Exercices avancés
+├── 04-html-js           # des mini simple projet complet
 └── README.md
 
 <h3> je peut ajouter des mini projets apres incha lah </h3>
