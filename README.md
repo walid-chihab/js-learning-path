@@ -17,4 +17,4 @@ js-learning-path/
 ├── 04-html-js           # des mini simple projet complet
 └── README.md
 
-<h3> je peut ajouter des mini projets apres incha lah </h3>
+je peut ajouter des mini projets apres incha lah
