@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des étudiants</title>
+</head>
+<body>
+
+    <h1>Liste des étudiants</h1>
+    <table border="1" id="tableEtudiants">
+        <!-- Le tableau sera généré ici -->
+    </table>
+
+    <script>
+        // Définition de la classe Etudiant
+        class Etudiant {
+            constructor(id, nom, prenom) {
+                this.id = id;
+                this.nom = nom;
+                this.prenom = prenom;
+            }
+        }
+
+        // Tableau contenant des étudiants
+        const etudiants = [
+            new Etudiant("1", "Dupont", "Jean"),
+            new Etudiant("2", "Martin", "Claire")
+        ];
+
+        // Fonction pour afficher les étudiants dans le tableau HTML
+        function afficherEtudiants() {
+            const table = document.getElementById('tableEtudiants');
+            table.innerHTML = ""; // Vider le tableau avant de le remplir
+
+            // Ligne des titres
+            const header = table.insertRow();
+            header.insertCell().textContent = "ID";
+            header.insertCell().textContent = "Nom";
+            header.insertCell().textContent = "Prénom";
+
+            // Remplissage des lignes avec les données des étudiants
+            etudiants.forEach(e => {
+                const row = table.insertRow();
+                row.insertCell().textContent = e.id;
+                row.insertCell().textContent = e.nom;
+                row.insertCell().textContent = e.prenom;
+            });
+        }
+
+        // Afficher les étudiants au chargement de la page
+        window.onload = afficherEtudiants;
+    </script>
+
+</body>
+</html>
+
