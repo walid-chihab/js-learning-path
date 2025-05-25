@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<HTML lang='fr'>
+	<head>
+		<meta charset="utf-8">
+		<title>mini calculatrice </title>
+	</head>
+	<body>
+		<input id='n1' type='text' placeHolder='entrer un nombre'>
+		<input id='n2' type='text' placeHolder='entrer un nombre'>
+		<select id='op'>
+			<option value='+'>addition</option>
+			<option value='-'>soustraction</option>
+			<option value='*'>multiplication</option>
+			<option value='/'> division</option>
+		</select>
+		<button onclick='calculer()'>calculer</button>
+		<div id='space'></div>
+		<script>
+			class Calculatrice {
+				addition(a,b){return a+b}
+				soustraction(a,b){return a-b}
+				multiplication(a,b){return a*b}
+				division(a,b){	
+					if (b === 0){
+						document.getElementById('space').textContent="entrer val defirent de 0";
+						return null;
+					}
+					return a / b ;
+				}
+			}
+			function calculer(){
+				const a = parseFloat(document.getElementById('n1').value);
+				const b = parseFloat(document.getElementById('n2').value);
+				const op = document.getElementById('op').value;
+				const calc = new Calculatrice();
+			
+				let result;
+				if (isNaN(a) || isNaN(b) ){
+					result = "etrer dex nombres valable";
+				}
+		       		else if(op === '+' ){
+		       			result = calc.addition(a,b);
+		       		}
+		       		else if(op === '-' ){
+                                         result = calc.soustraction(a,b);
+                                }
+                                else if(op === '*' ){
+                                         result = calc.multiplication(a,b);
+                                }
+                                else if(op === '/' ){
+                                         result = calc.division(a,b);
+                                }
+		       		else	{
+                                         result = "votre operation pas trouver!";
+		                }
+                       	
+			document.getElementById('space').textContent="votre resultat est :" + result;
+			}
+                </script>
+        </body>
+</html>
