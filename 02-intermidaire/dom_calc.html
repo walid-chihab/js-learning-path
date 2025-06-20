@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Mini calculatrice</title>
+</head>
+<body>
+
+<!-- Champs pour saisir les deux nombres -->
+<input id="nb1" type="text" placeholder="Nombre 1">
+<input id="nb2" type="text" placeholder="Nombre 2">
+
+<!-- Boutons pour additionner et multiplier -->
+<button id="btnAdd">Additionner</button>
+<button id="btnMul">Multiplier</button>
+
+<!-- Zone pour afficher le résultat -->
+<div id="result"></div>
+
+<script>
+// Fonction pour additionner deux nombres
+function additionner(a, b) {
+  return a + b;
+}
+
+// Fonction pour multiplier deux nombres
+function multiplier(a, b) {
+  return a * b;
+}
+
+// Récupération des éléments HTML
+const input1 = document.getElementById("nb1");
+const input2 = document.getElementById("nb2");
+const resultDiv = document.getElementById("result");
+
+const btnAdd = document.getElementById("btnAdd");
+const btnMul = document.getElementById("btnMul");
+
+// Au clic sur le bouton addition, on calcule avec additionner
+btnAdd.addEventListener("click", () => {
+  calculer(additionner);
+});
+
+// Au clic sur le bouton multiplication, on calcule avec multiplier
+btnMul.addEventListener("click", () => {
+  calculer(multiplier);
+});
+
+// Fonction générale qui récupère les valeurs, vérifie, calcule et affiche
+function calculer(operation) {
+  const val1 = parseFloat(input1.value);
+  const val2 = parseFloat(input2.value);
+
+  // Vérifier que les deux champs contiennent bien des nombres
+  if (isNaN(val1) || isNaN(val2)) {
+    resultDiv.textContent = "Erreur : veuillez saisir deux nombres valides.";
+    return;
+  }
+
+  // Calculer avec la fonction passée en paramètre (addition ou multiplication)
+  const res = operation(val1, val2);
+
+  // Afficher le résultat dans la div
+  resultDiv.textContent = "Résultat : " + res;
+}
+</script>
+
+</body>
+</html>
+
