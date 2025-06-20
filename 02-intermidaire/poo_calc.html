@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Mini calculatrice orientée objet</title>
+</head>
+<body>
+
+<h2>Mini calculatrice</h2>
+
+<!-- Inputs pour les nombres -->
+<input id="nb1" type="text" placeholder="Nombre 1" />
+<input id="nb2" type="text" placeholder="Nombre 2" />
+
+<!-- Select pour choisir l'opération -->
+<select id="operation">
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="*">*</option>
+  <option value="/">/</option>
+</select>
+
+<!-- Bouton calculer -->
+<button id="btnCalculer">Calculer</button>
+
+<!-- Div pour afficher le résultat -->
+<div id="result"></div>
+
+<script>
+// Classe Calculatrice avec les 4 opérations
+class Calculatrice {
+  addition(a, b) {
+    return a + b;
+  }
+
+  soustraction(a, b) {
+    return a - b;
+  }
+
+  multiplication(a, b) {
+    return a * b;
+  }
+
+  division(a, b) {
+    if (b === 0) {
+      return null; // Protection division par zéro
+    }
+    return a / b;
+  }
+}
+
+// Instanciation unique
+const calc = new Calculatrice();
+
+// Sélection des éléments DOM
+const input1 = document.getElementById("nb1");
+const input2 = document.getElementById("nb2");
+const selectOp = document.getElementById("operation");
+const btn = document.getElementById("btnCalculer");
+const resultDiv = document.getElementById("result");
+
+// Événement clic sur le bouton
+btn.addEventListener("click", () => {
+  const val1 = parseFloat(input1.value);
+  const val2 = parseFloat(input2.value);
+  const op = selectOp.value;
+
+  // Vérification des nombres
+  if (isNaN(val1) || isNaN(val2)) {
+    resultDiv.textContent = "Erreur : veuillez entrer deux nombres valides.";
+    return;
+  }
+
+  let res;
+  switch (op) {
+    case "+":
+      res = calc.addition(val1, val2);
+      break;
+    case "-":
+      res = calc.soustraction(val1, val2);
+      break;
+    case "*":
+      res = calc.multiplication(val1, val2);
+      break;
+    case "/":
+      res = calc.division(val1, val2);
+      if (res === null) {
+        resultDiv.textContent = "Erreur : division par zéro impossible.";
+        return;
+      }
+      break;
+    default:
+      resultDiv.textContent = "Erreur : opération inconnue.";
+      return;
+  }
+
+  resultDiv.textContent = "Résultat : " + res;
+});
+</script>
+
+</body>
+</html>
+
